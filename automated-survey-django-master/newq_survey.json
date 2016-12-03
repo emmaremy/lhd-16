@@ -1,0 +1,17 @@
+{
+  "questions": [
+    {
+      "body": "What would you like your text reminder to say? (for example, 'did you brush your teeth today?')",
+      "kind": "text"
+    },
+    {
+      "body": "Is this reminder a yes/no question, or does it have a numerical answer? Please write 'yes/no' or 'numerical'.",
+      "kind": "text"
+    },
+    {
+      "body": "When and how often would you like this reminder? Use the format '????'.",
+      "kind": "yes-no"
+    }
+  ],
+  "title": "About bears"
+}
