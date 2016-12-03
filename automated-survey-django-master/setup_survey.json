@@ -1,0 +1,17 @@
+{
+  "questions": [
+    {
+      "body": "What is your full name?",
+      "kind": "text"
+    },
+    {
+      "body": "What is your doctor's name?",
+      "kind": "text"
+    },
+    {
+      "body": "What is the email address of your doctor or doctor's office?",
+      "kind": "text"
+    }
+  ],
+  "title": "Setup"
+}
