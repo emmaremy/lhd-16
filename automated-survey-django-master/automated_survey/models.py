@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-
+import time
 
 class Survey(models.Model):
     title = models.CharField(max_length=255)
@@ -56,11 +56,16 @@ class QuestionResponse(models.Model):
     phone_number = models.CharField(max_length=255)
     question = models.ForeignKey(Question)
 
+    def __init__(self):
+	self.timestamp = time.localtime(time.time())
+
     def __str__(self):
         return '%s' % self.response
 
     def as_dict(self):
         return {
+		# TODO: figure out how to get actual timestamp from Twilio or otherwise
+		'time': self.timestamp, 
                 'body': self.question.body,
                 'kind': self.question.kind,
                 'response': self.response,
