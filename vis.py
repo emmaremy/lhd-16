@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import pandas
 # from automated-survey-django-master.automated_survey import models
 
-
 class result_plots:
     # will need to import questions class and get rid of this stuff
     TEXT = 'text'
@@ -40,4 +39,6 @@ class result_plots:
 	    pass
 
     def _numeric_plot(self):
-	pass 	
+	# TODO: add title and possibly legend
+	plt.plot(self.timestamps, self.data)
+ 
