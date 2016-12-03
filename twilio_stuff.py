@@ -19,7 +19,8 @@ def get_messages_by_user_number(usr_phone_number_str):
     smss = json.loads(smss)    
     # list of dictionaries containing data for each sms message
     actual_message_data = smss['sms_messages']
-    messages_from_usr = [message['body'] for message in actual_message_data]
+    messages_from_usr = [[message['body'], 
+			  message['date_created']] for message in actual_message_data]
     print messages_from_usr
     return messages_from_usr
 
@@ -32,5 +33,11 @@ def send_message(msg_str, usr_phone_number_str='+16152759927', from_number='+161
 
 def num_total_messages():
     return len(tw.client.messages.list()['sms_messages'])
+
+
+def get_numeric_messages(usr_phone_number_str):
+    messages_from_user = get_messages_by_user_number(usr_phone_number_str)
+    timestamps = []
+
 
 send_message('test')
