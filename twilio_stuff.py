@@ -5,7 +5,8 @@ import json
 
 START_MSGS = ['Welcome to Health Texts! What should we ask you when we check in?',
 	      'What time during the day should we check in?',
-	      'Ok, text you later!']
+	      'Ok, text you later!',
+              'Thanks! We recorded your response and will check in again tomorrow.']
 
 def get_messages_by_user_number(usr_phone_number_str):
     # get a list of all the sms messages
