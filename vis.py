@@ -17,13 +17,11 @@ class result_plots:
         (NUMERIC, 'Numeric')
     )
 
-    def __init__(self, question_kind, question_body, answer_data):
+    def __init__(self, question_body, data, timestamps, question_kind=self.NUMERIC):
 	self.question_kind = question_kind
 	self.question_body = question_body
-	# this will likely have to change when we figure out what format 
-	# the question data will actually be in by default, but for now
-	# will assume it comes in a list of QuestionResponse dictionaries
-	self.answer_data = answer_data
+	self.data = data
+	self.timestamps = timestamps
 	
     def plot_data(self):
 	if self.question_kind not in [self.YES_NO, self.NUMERIC, self.TEXT]:
@@ -31,9 +29,6 @@ class result_plots:
 
 	if self.question_kind == self.TEXT:
 	    raise TypeError("requested graph of question with text answer")
-
-	self.timestamps = [answer['time'] for answer in self.answer_data]
-	self.data = [answer['response'] for answer in self.answer_data]
 
 	if self.question_kind == self.YES_NO:
 	    pass
@@ -45,4 +40,9 @@ class result_plots:
 	# TODO: add title and possibly legend
 	plt.plot(self.timestamps, self.data)
 	
-	plt.savefig('test.png') 
+	plt.savefig('test.png')
+
+
+def plot(timestamps, data):
+    plt.plot(self.timestamps, self.data)
+    plt.save('report.png')

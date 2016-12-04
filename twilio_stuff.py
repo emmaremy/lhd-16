@@ -1,22 +1,19 @@
 import twilio_private_stuff as tw
 import json
-import xmltodict
+#import parsexml
 
-# USER_NUMBER
-# FROM_NUMBER = 
 
 START_MSGS = ['Welcome to Health Texts! What should we ask you when we check in?',
 	      'What time during the day should we check in?',
 	      'Ok, text you later!']
 
-USERS = {}
-
 def get_messages_by_user_number(usr_phone_number_str):
     # get a list of all the sms messages
     smss = tw.client.sms.messages.list()
     print smss
+    smss = parsexml.xml_to_info(smss) 
+    print smss 
     return
-    smss = json.loads(smss)    
     # list of dictionaries containing data for each sms message
     actual_message_data = smss['sms_messages']
     messages_from_usr = [[message['body'], 
@@ -37,7 +34,15 @@ def num_total_messages():
 
 def get_numeric_messages(usr_phone_number_str):
     messages_from_user = get_messages_by_user_number(usr_phone_number_str)
-    timestamps = []
+    data = []
+    times = []
+    for message in messages_from_users:
+	try:
+	    num = float(message[0])
+	except ValueError:
+	    return
+	data.append(num)
+	times.append(message[1])
 
 
-send_message('test')
+# send_message('test')
