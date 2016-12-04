@@ -57,7 +57,7 @@ def get_time(timestr):
     date_object = datetime.strptime(timestr, '%a, %d %b %Y %H:%M:%S %z')
     return date_object
 
-#def main():
-#  send_email('test@gmail.com', 'eremy1@swarthmore.edu', "TEST", "TEST CONTENT", "./apple_raw.png")
+def main():
+  send_email('test@gmail.com', 'eremy1@swarthmore.edu', "TEST", "TEST CONTENT", "./apple_raw.png")
 
-#main()
+main()
