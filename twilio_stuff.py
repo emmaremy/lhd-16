@@ -1,6 +1,8 @@
 import twilio_private_stuff as tw
 import json
 import xmltodict
+import email
+
 
 # USER_NUMBER
 # FROM_NUMBER = 
@@ -37,7 +39,15 @@ def num_total_messages():
 
 def get_numeric_messages(usr_phone_number_str):
     messages_from_user = get_messages_by_user_number(usr_phone_number_str)
-    timestamps = []
+    data = []
+    times = []
+    for message in messages_from_users:
+	try:
+	    num = float(message[0])
+	Except ValueError:
+	    return
+	data.append(num)
+	times.append(message[1])
 
 
-send_message('test')
+# send_message('test')
