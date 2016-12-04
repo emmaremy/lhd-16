@@ -11,6 +11,6 @@ for i in range(30):
 	     'response': random.random()}
    answer_data.append(answer)
 
-results = vis.result_plots(vis.result_plots.NUMERIC, 'question', answer_data)
+#results = vis.result_plots(vis.result_plots.NUMERIC, 'question', answer_data)
 
-results.plot_data()
+answer_data.plot_data()
